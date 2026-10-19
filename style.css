@@ -1,0 +1,999 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+@font-face {
+    font-family: "ClashDisplay";
+    src: url("font/ClashDisplay-Variable.ttf") format("truetype");
+}
+
+body {
+    font-family: "ClashDisplay", sans-serif;
+    overflow-x: hidden;
+}
+
+html,
+body {
+    cursor: none;
+}
+
+a,
+button {
+    cursor: none;
+}
+
+.site-nav {
+    position: fixed;
+    z-index: 1001;
+    top: 1.25rem;
+    left: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: clamp(1rem, 3vw, 2.5rem);
+    width: max-content;
+    max-width: calc(100% - 2rem);
+    padding: 0.85rem 1.5rem;
+    transform: translateX(-50%);
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    border-radius: 999px;
+    background: rgba(12, 12, 12, 0.68);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+    -webkit-backdrop-filter: blur(16px);
+    backdrop-filter: blur(16px);
+}
+
+.site-nav a {
+    color: rgba(255, 255, 255, 0.88);
+    font-size: 0.95rem;
+    font-weight: 500;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: color 180ms ease;
+}
+
+.site-nav a:hover,
+.site-nav a:focus-visible {
+    color: #fff;
+}
+
+.nav-toggle {
+    display: none;
+    color: #fff;
+    border: 0;
+    background: transparent;
+    font: inherit;
+}
+
+.site-nav-links {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: clamp(1rem, 3vw, 2.5rem);
+}
+
+section[id],
+.albums-section-wrapper[id] {
+    scroll-margin-top: 6rem;
+}
+
+.hero-section {
+    min-height: 100vh;
+    color: #fff;
+    background: linear-gradient(180deg, rgba(60, 18, 18, 1) 0%, rgba(162, 49, 49, 1) 100%);
+    padding: 0 10rem;
+}
+
+.custom-cursor {
+    z-index: 1002;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 30px;
+    height: 30px;
+    background-color: rgba(48, 48, 48, 0.733);
+    border-radius: 50%;
+    pointer-events: none;
+    transform: translate(-49%, -49%);
+    backdrop-filter: blur 2px;
+}
+
+h1 {
+    font-size: 24rem;
+}
+
+p {
+    font-size: 2rem;
+    line-height: 3rem;
+    max-width: 50rem;
+}
+
+.btn {
+    padding: .5rem 2rem;
+    background-color: #fff;
+    color: #242424;
+    border: none;
+    border-radius: 2rem;
+    font-size: 1.5rem;
+    font-family: "ClashDisplay", sans-serif;
+    font-weight: 600;
+}
+
+.desc-container-container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 5rem;
+}
+
+.desc-container {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    align-items: flex-start;
+    position: relative;
+    left: 3rem;
+}
+
+.img-container {
+    position: relative;
+    position: absolute;
+    top: 30%;
+    right: 42%;
+    z-index: 0;
+}
+
+.img {
+    z-index: 0;
+    min-width: 50rem;
+    position: absolute;
+}
+
+.albums-section-wrapper {
+    background-color: #ededed;
+    position: relative;
+    z-index: 2;
+    text-align: center;
+
+
+}
+
+.albums-title {
+    font-size: 5rem;
+    transform: translateY(50px);
+    position: relative;
+    z-index: 2;
+
+}
+
+.albums-section {
+    position: relative;
+    min-height: 100vh;
+    width: 100%;
+    background-color: #ededed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+
+
+
+.album-container {
+    width: 500px;
+    height: 500px;
+    border-radius: 50%;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 2rem 2.5rem;
+    color: #fff;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
+    background-color: #6F2121;
+    overflow: hidden;
+    font-family: "ClashDisplay", sans-serif;
+}
+
+
+
+.album-content {
+    position: relative;
+    z-index: 1;
+    max-width: 62%;
+    display: flex;
+    flex-direction: column;
+    gap: .7rem;
+}
+
+.album-year {
+    display: inline-block;
+    font-size: 0.95rem;
+    letter-spacing: 0.18rem;
+    text-transform: uppercase;
+    opacity: 0.85;
+    margin-bottom: 0.75rem;
+}
+
+.album-content h2 {
+    font-size: 3rem;
+    line-height: 1;
+    margin-bottom: 0.8rem;
+    font-weight: 700;
+}
+
+.album-content p {
+    font-size: 1.15rem;
+    line-height: 1.5;
+    max-width: 100%;
+    opacity: 0.95;
+}
+
+.album-btn {
+    padding: .5rem 2rem;
+    background-color: #fff;
+    color: #6F2121;
+    border: none;
+    border-radius: 2rem;
+    font-size: 1.5rem;
+    font-family: "ClashDisplay", sans-serif;
+    font-weight: 600;
+    margin-top: 1.5rem;
+}
+
+.album-container:nth-of-type(2) {
+    opacity: 0;
+}
+
+.album-container:nth-of-type(3) {
+    opacity: 0;
+}
+
+.vinly-section {
+    height: 100vh;
+    overflow: hidden;
+    background-color: #000;
+}
+
+.vinly-video {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    background-color: #000;
+}
+
+.timeline-section {
+    background-color: #fff;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 3.5rem;
+    overflow: hidden;
+}
+
+.timeline-title {
+    font-size: 5rem;
+    margin: 0 0 3rem;
+}
+
+/* =========================
+   TIMELINE
+========================= */
+
+.timeline-container {
+    position: relative;
+    width: min(550px, calc(100vw - 2rem));
+    height: 6px;
+    margin: 2rem 0;
+}
+
+.timeline {
+    position: absolute;
+    left: 0;
+    top: 0;
+
+    width: 10px;
+    height: 6px;
+
+    border-radius: 3px;
+    background-color: #242424;
+}
+
+/* =========================
+   YEARS
+========================= */
+
+.timeline-year {
+    position: absolute;
+
+    top: -40px;
+    margin: 0;
+
+    font-size: 1rem;
+    white-space: nowrap;
+}
+
+/* 2000 */
+.timeline-year:nth-of-type(1) {
+    left: 0;
+}
+
+/* 2001 */
+.timeline-year:nth-of-type(2) {
+    left: 33.333%;
+}
+
+/* 2002 */
+.timeline-year:nth-of-type(3) {
+    left: 66.667%;
+}
+
+/* 2003 */
+.timeline-year:nth-of-type(4) {
+    left: 100%;
+    transform: translateX(-100%);
+}
+
+
+/* =========================
+   ACHIEVEMENTS
+========================= */
+
+.achievements-container {
+    position: relative;
+
+    width: min(900px, 80vw);
+    min-height: 220px;
+
+    text-align: center;
+}
+
+/*
+    Svi achievementi su na istom mjestu.
+    GSAP ih onda samo fadea/movea.
+*/
+
+.achievement-title,
+.achievement-desc {
+    position: absolute;
+
+    left: 0;
+    width: 100%;
+
+    margin: 0;
+
+    opacity: 0;
+    visibility: hidden;
+}
+
+/* TITLE */
+
+.achievement-title {
+    top: 0;
+
+    font-size: 1.5rem;
+    line-height: 1.1;
+
+    font-weight: 700;
+}
+
+/* DESCRIPTION */
+
+.achievement-desc {
+    top: 50px;
+    left: 30px;
+    font-size: 1.5rem;
+    line-height: 1.5;
+}
+
+/*
+    Prvi achievement je vidljiv
+    kada stranica počne.
+*/
+
+.achievement-title:nth-of-type(1),
+.achievement-desc:nth-of-type(1) {
+    opacity: 1;
+    visibility: visible;
+}
+
+.concerts-section {
+    position: relative;
+    display: flex;
+    min-height: 90vh;
+    align-items: center;
+    justify-content: space-between;
+    gap: 3rem;
+    overflow: hidden;
+    padding: 7rem max(10vw, 2rem);
+    color: #fff;
+    background:
+        radial-gradient(ellipse at 80% 45%, rgba(162, 49, 49, 0.3), transparent 42%),
+        linear-gradient(135deg, #180b0d, #391719 58%, #160b0c);
+    isolation: isolate;
+}
+
+.concerts-content {
+    position: relative;
+    z-index: 1;
+    width: min(570px, 58%);
+}
+
+.concerts-eyebrow {
+    margin-bottom: 1rem;
+    color: #f2b4aa;
+    font-size: 0.95rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+}
+
+.concerts-title {
+    font-size: clamp(4rem, 8vw, 8rem);
+    line-height: 0.85;
+    letter-spacing: 0.02em;
+}
+
+.concerts-title span {
+    color: #ee8c78;
+}
+
+.concerts-description {
+    max-width: 34rem;
+    margin-top: 2rem;
+    color: rgba(255, 255, 255, 0.78);
+    font-size: 1.2rem;
+    line-height: 1.6;
+}
+
+.concerts-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 2rem;
+    padding: 0.9rem 1.5rem;
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.08);
+    color: #fff;
+    font-size: 1rem;
+    text-decoration: none;
+    transition: background-color 180ms ease, transform 180ms ease;
+}
+
+.concerts-link:hover,
+.concerts-link:focus-visible {
+    transform: translateY(-3px);
+    background: rgba(255, 255, 255, 0.16);
+}
+
+.concerts-link span {
+    font-size: 1.25rem;
+}
+
+.concerts-art {
+    position: relative;
+    display: grid;
+    width: min(36vw, 440px);
+    aspect-ratio: 1;
+    flex: 0 0 auto;
+    place-items: center;
+}
+
+.concerts-orbit {
+    position: absolute;
+    inset: 8%;
+    border: 1px solid rgba(255, 207, 181, 0.28);
+    border-radius: 50%;
+}
+
+.concerts-orbit-one {
+    animation: concert-orbit 22s linear infinite;
+}
+
+.concerts-orbit-two {
+    inset: 18%;
+    border-style: dashed;
+    border-color: rgba(255, 207, 181, 0.2);
+    animation: concert-orbit 30s linear infinite reverse;
+}
+
+.concerts-disc {
+    display: flex;
+    width: 58%;
+    aspect-ratio: 1;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.25rem;
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    border-radius: 50%;
+    background: radial-gradient(circle at 35% 28%, #f2a38e, #9d3438 48%, #43171e 78%);
+    box-shadow: 0 0 90px rgba(224, 95, 82, 0.25), inset 0 0 35px rgba(0, 0, 0, 0.24);
+    color: #fff;
+    font-size: clamp(1.5rem, 4vw, 3rem);
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    animation: concert-pulse 4s ease-in-out infinite;
+}
+
+.concerts-disc-star {
+    font-size: 2em;
+    line-height: 1;
+}
+
+.concerts-glow {
+    position: absolute;
+    z-index: -1;
+    width: 25rem;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    background: rgba(255, 102, 87, 0.1);
+    filter: blur(70px);
+    pointer-events: none;
+}
+
+.concerts-glow-one {
+    top: -12rem;
+    right: 8%;
+}
+
+.concerts-glow-two {
+    bottom: -16rem;
+    left: 20%;
+    background: rgba(127, 44, 96, 0.14);
+}
+
+.site-footer {
+    padding: 3.5rem max(10vw, 2rem) 1.5rem;
+    color: rgba(255, 255, 255, 0.76);
+    background: #100b0c;
+}
+
+.footer-main {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    gap: 1.5rem 3rem;
+    padding-bottom: 2.5rem;
+}
+
+.footer-brand {
+    color: #fff;
+    font-size: clamp(2rem, 4vw, 3.25rem);
+    font-weight: 700;
+    letter-spacing: -0.06em;
+    line-height: 1;
+    text-decoration: none;
+}
+
+.footer-brand span {
+    color: #ee8c78;
+}
+
+.footer-tagline {
+    grid-column: 1;
+    margin: -1rem 0 0;
+    color: rgba(255, 255, 255, 0.52);
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+.footer-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    gap: 0.75rem 1.5rem;
+}
+
+.footer-links a,
+.footer-official-link,
+.footer-bottom a {
+    color: inherit;
+    font-size: 0.95rem;
+    text-decoration: none;
+    transition: color 180ms ease;
+}
+
+.footer-links a:hover,
+.footer-links a:focus-visible,
+.footer-official-link:hover,
+.footer-official-link:focus-visible,
+.footer-bottom a:hover,
+.footer-bottom a:focus-visible {
+    color: #ee8c78;
+}
+
+.footer-official-link {
+    justify-self: end;
+    color: #fff;
+}
+
+.footer-official-link span {
+    margin-left: 0.35rem;
+}
+
+.footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    padding-top: 1.25rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+    color: rgba(255, 255, 255, 0.45);
+    font-size: 0.8rem;
+}
+
+.footer-bottom a {
+    font-size: inherit;
+}
+
+@keyframes concert-orbit {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes concert-pulse {
+    50% {
+        transform: scale(1.04);
+        box-shadow: 0 0 120px rgba(224, 95, 82, 0.4), inset 0 0 35px rgba(0, 0, 0, 0.24);
+    }
+}
+
+@media (max-width: 1100px) {
+    .hero-section {
+        position: relative;
+        padding: 7rem 4rem 3rem;
+    }
+
+    .hero-section .main-title {
+        font-size: clamp(4.5rem, 13vw, 8rem);
+        line-height: 0.95;
+    }
+
+    .desc-container-container {
+        margin-top: 3rem;
+    }
+
+    .desc-container {
+        left: 0;
+        max-width: 55%;
+    }
+
+    .desc-text {
+        font-size: 1.5rem;
+        line-height: 1.5;
+    }
+
+    .img-container {
+        top: 29%;
+        right: 3%;
+        width: min(50vw, 34rem);
+    }
+
+    .img {
+        position: relative;
+        width: 100%;
+        min-width: 0;
+        height: auto;
+    }
+
+    .albums-title,
+    .timeline-title {
+        font-size: clamp(3.25rem, 8vw, 5rem);
+    }
+
+    .album-container {
+        width: min(70vw, 440px);
+        height: auto;
+        aspect-ratio: 1;
+    }
+
+    .timeline-section {
+        padding: 2rem 1rem;
+        gap: 2.5rem;
+    }
+
+    .achievement-desc {
+        left: 0;
+        font-size: 1.25rem;
+    }
+
+    .concerts-section {
+        min-height: 75vh;
+        padding: 6rem 4rem;
+    }
+
+    .concerts-art {
+        width: min(34vw, 360px);
+    }
+
+    .site-footer {
+        padding: 3rem 4rem 1.5rem;
+    }
+}
+
+@media (max-width: 600px) {
+    .site-nav {
+        position: fixed;
+        top: 0.75rem;
+        left: 50%;
+        z-index: 1001;
+        flex-direction: column;
+        align-items: stretch;
+        width: calc(100% - 1rem);
+        max-width: none;
+        margin: 0;
+        padding: 0.7rem 1rem;
+        transform: translateX(-50%);
+        border-radius: 1.25rem;
+    }
+
+    .nav-toggle {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        padding: 0.25rem 0;
+        font-size: 0.95rem;
+        font-weight: 600;
+        cursor: none;
+    }
+
+    .nav-toggle-icon,
+    .nav-toggle-icon::before {
+        display: block;
+        width: 1.15rem;
+        height: 2px;
+        border-radius: 2px;
+        background: #fff;
+        transition: transform 180ms ease;
+    }
+
+    .nav-toggle-icon {
+        position: relative;
+    }
+
+    .nav-toggle-icon::before {
+        position: absolute;
+        content: "";
+        transform: translateY(-6px);
+    }
+
+    .site-nav.is-open .nav-toggle-icon {
+        transform: rotate(45deg);
+    }
+
+    .site-nav.is-open .nav-toggle-icon::before {
+        transform: rotate(90deg);
+    }
+
+    .site-nav-links {
+        display: none;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+        padding-top: 0.5rem;
+    }
+
+    .site-nav.is-open .site-nav-links {
+        display: flex;
+    }
+
+    .site-nav-links a {
+        padding: 0.65rem 0;
+        font-size: 0.9rem;
+    }
+
+    .site-nav-links a+a {
+        border-top: 1px solid rgba(255, 255, 255, 0.12);
+    }
+
+    .hero-section {
+        min-height: 100svh;
+        padding: 6rem 1.25rem 2.5rem;
+    }
+
+    body.nav-open .hero-section {
+        padding-top: var(--open-mobile-nav-offset, 16rem);
+    }
+
+    .hero-section .main-title {
+        font-size: clamp(3.7rem, 16vw, 6.5rem);
+        line-height: 0.95;
+    }
+
+    .desc-container-container {
+        flex-direction: column;
+        gap: 1.5rem;
+        margin-top: 2rem;
+    }
+
+    .desc-container {
+        max-width: none;
+        gap: 1.25rem;
+    }
+
+    .desc-text {
+        font-size: 1.1rem;
+        line-height: 1.55;
+    }
+
+    .btn {
+        padding: 0.65rem 1.5rem;
+        font-size: 1rem;
+    }
+
+    .img-container {
+        position: relative;
+        top: auto;
+        right: auto;
+        align-self: center;
+        width: min(88vw, 24rem);
+    }
+
+    .albums-title {
+        font-size: 3rem;
+    }
+
+    .timeline-title {
+        font-size: clamp(2.2rem, 10vw, 3rem);
+    }
+
+    .albums-title {
+        transform: translateY(5rem);
+    }
+
+    body.nav-open .albums-title {
+        transform: translateY(8rem);
+    }
+
+    .albums-section {
+        min-height: 85svh;
+    }
+
+    .album-container {
+        width: min(82vw, 360px);
+        padding: 1.5rem;
+    }
+
+    .album-content {
+        max-width: 78%;
+        gap: 0.45rem;
+    }
+
+    .album-content h2 {
+        font-size: clamp(1.8rem, 8vw, 2.5rem);
+    }
+
+    .album-content p {
+        font-size: 0.95rem;
+    }
+
+    .album-btn {
+        margin-top: 0.75rem;
+        padding: 0.5rem 1rem;
+        font-size: 1rem;
+    }
+
+    .vinly-section {
+        height: 100svh;
+    }
+
+    .timeline-section {
+        min-height: 100svh;
+        gap: 2rem;
+        padding: 2rem 1.25rem;
+    }
+
+    .timeline-container {
+        width: calc(100vw - 3rem);
+        margin: 1.5rem 0;
+    }
+
+    .timeline-year {
+        top: -2rem;
+        font-size: 0.85rem;
+    }
+
+    .achievements-container {
+        width: 100%;
+        min-height: 240px;
+    }
+
+    .achievement-title {
+        font-size: 1.25rem;
+    }
+
+    .achievement-desc {
+        top: 2.5rem;
+        font-size: 1rem;
+        line-height: 1.5;
+    }
+
+    .concerts-section {
+        min-height: auto;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 2rem;
+        padding: 6rem 1.5rem 4rem;
+    }
+
+    .concerts-content {
+        width: 100%;
+    }
+
+    .concerts-title {
+        font-size: clamp(3.8rem, 17vw, 5.5rem);
+    }
+
+    .concerts-description {
+        margin-top: 1.5rem;
+        font-size: 1rem;
+    }
+
+    .concerts-art {
+        align-self: center;
+        width: min(72vw, 300px);
+    }
+
+    .site-footer {
+        padding: 2.5rem 1.5rem 1.25rem;
+    }
+
+    .footer-main {
+        grid-template-columns: 1fr;
+        gap: 1.25rem;
+        padding-bottom: 2rem;
+    }
+
+    .footer-tagline {
+        margin-top: -0.75rem;
+    }
+
+    .footer-links {
+        justify-content: flex-start;
+        gap: 0.75rem 1.25rem;
+    }
+
+    .footer-official-link {
+        justify-self: start;
+    }
+
+    .footer-bottom {
+        align-items: flex-start;
+        font-size: 0.75rem;
+    }
+}
+
+@media (hover: none),
+(pointer: coarse) {
+
+    html,
+    body,
+    a,
+    button {
+        cursor: auto;
+    }
+
+    .custom-cursor {
+        display: none;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+    .concerts-orbit,
+    .concerts-disc {
+        animation: none;
+    }
+
+    .concerts-link {
+        transition: none;
+    }
+}
